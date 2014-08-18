@@ -2,7 +2,7 @@
 与业务解耦的一些公共服务，GO语言实现
 
 ##环境部署
-    sudo apt-get install golang
+    sudo apt-get install golang //这种安装方式不好,可能安装的版本低于1.1 参考http://golang.org/doc/install
     go get github.com/mattn/go-sqlite3
     go get github.com/beego/bee
     go get github.com/astaxie/beego
