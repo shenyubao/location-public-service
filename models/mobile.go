@@ -29,10 +29,15 @@ func FindLocation(mobile string) (area Mobile) {
 		checkErr(err)
 		if len(area) == 0 {
 			return Mobile{Mobile:mobile}
-		}else if len(area) == 20 {
+		} else if len(area) == 20 {
 			return Mobile{Mobile:mobile, Province:area[0:6], City:area[6:12], Opera:area[13:19], Fullname:area}
 		}else {
-			return Mobile{Mobile:mobile, Province:area[0:6], Opera:area[7:13], Fullname:area}
+			province:= area[0:9];
+			if(province == "黑龙江"){
+				return Mobile{Mobile:mobile, Province:area[0:9], Opera:area[10:16], Fullname:area}
+			}else{
+				return Mobile{Mobile:mobile, Province:area[0:6], Opera:area[7:13], Fullname:area}
+			}
 		}
 	}
 	defer db.Close()
