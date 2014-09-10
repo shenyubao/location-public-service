@@ -19,7 +19,11 @@ func (u *MobileController) GetLocation() {
 	}else{
 		fmt.Println(_mobile)
 		area := models.FindLocation(_mobile[0:7])
-		u.Data["json"] = models.Render(CODE_SUCCESS, "success", area)
+		if(len(area.Province) == 0){
+			u.Data["json"] = models.Render(CODE_ERR_NODATA, "nodata", area)
+		}else{
+			u.Data["json"] = models.Render(CODE_SUCCESS, "success", area)
+		}
 		u.ServeJson()
 	}
 }

@@ -32,10 +32,10 @@ func FindLocation(mobile string) (area Mobile) {
 		} else if len(area) == 20 {
 			return Mobile{Mobile:mobile, Province:area[0:6], City:area[6:12], Opera:area[13:19], Fullname:area}
 		}else {
-			province:= area[0:9];
-			if(province == "黑龙江"){
+			province := area[0:9];
+			if (province == "黑龙江" || province == "内蒙古") {
 				return Mobile{Mobile:mobile, Province:area[0:9], Opera:area[10:16], Fullname:area}
-			}else{
+			}else {
 				return Mobile{Mobile:mobile, Province:area[0:6], Opera:area[7:13], Fullname:area}
 			}
 		}
